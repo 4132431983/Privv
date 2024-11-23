@@ -1,0 +1,18 @@
+
+This script searches for private keys in a wallet.dat file. 
+Bitcoin, Litecoin, Dogecoin, Dash, wallet.dat.
+
+It looks for a specific magic pattern (`ckey!` "crypted key") 
+and extracts the private keys that come before it. 
+
+It uses the "base58" library to encode the private keys 
+in Base58 format and includes a checksum. 
+
+The script reads the file in chunks (`readlength`) 
+and searches for the magic pattern in each chunk. 
+
+It utilizes multiprocessing to speed up the process 
+by dividing the file into chunks and searching for keys in 
+parallel using multiple CPU cores. 
+
+The extracted private keys are then saved to a file named "WIF-KEYS.txt".
